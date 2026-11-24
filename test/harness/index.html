@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <!-- Strict CSP like the real sites: no inline scripts or styles. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'" />
+  <title>Guard test harness</title>
+</head>
+<body>
+  <h1>Mock chat app</h1>
+  <div class="assistant-msg" id="answer">I am an AI-generated answer. <b>Bold part</b> <a href="#">link</a></div>
+  <div class="user-msg" id="question">I am a user message.</div>
+  <form id="form">
+    <textarea id="composer" placeholder="Ask anything"></textarea>
+    <button id="send" type="button" aria-label="Send prompt">Send</button>
+  </form>
+  <div id="ce" contenteditable="true"></div>
+  <input type="file" id="file" multiple />
+  <div id="dropzone">Drop files here</div>
+  <div id="pastezone" tabindex="0">Paste here</div>
+  <button id="programmatic" type="button">Programmatic send</button>
+  <script src="app.js"></script>
+</body>
+</html>

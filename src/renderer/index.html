@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:;" />
+  <title>Sensitive Upload Guard</title>
+  <link rel="stylesheet" href="panel.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="shield" aria-hidden="true"></div>
+      <div>
+        <h1>Sensitive Upload Guard</h1>
+        <p class="sub">DLP for ChatGPT &amp; Perplexity · marker <code id="marker-label">WALLED_SENSITIVE</code></p>
+      </div>
+    </div>
+  </header>
+
+  <section class="card" id="status-card">
+    <div class="row">
+      <span class="dot" id="status-dot"></span>
+      <div class="grow">
+        <div id="status-title">Starting…</div>
+        <div class="muted" id="status-detail"></div>
+      </div>
+      <button id="btn-start" class="primary">Launch protected browser</button>
+      <button id="btn-stop" class="ghost hidden">Close browser</button>
+    </div>
+    <div class="row sites" id="site-buttons"></div>
+  </section>
+
+  <section class="card">
+    <h2>Protection</h2>
+    <label class="toggle"><input type="checkbox" id="opt-prompts" /> <span>Inspect text prompts</span></label>
+    <label class="toggle"><input type="checkbox" id="opt-files" /> <span>Inspect file uploads (text, PDF, images)</span></label>
+    <label class="toggle"><input type="checkbox" id="opt-ocr" /> <span>OCR images and scanned PDF pages</span></label>
+    <div class="row color-row">
+      <label for="opt-color">AI response text colour</label>
+      <input type="color" id="opt-color" />
+      <code id="color-value"></code>
+    </div>
+  </section>
+
+  <section class="card grow-card">
+    <div class="row">
+      <h2 class="grow">Activity</h2>
+      <button class="link" id="btn-samples">Sample files</button>
+      <button class="link" id="btn-logs">Logs</button>
+    </div>
+    <ul id="activity"><li class="empty">No sensitive content seen yet.</li></ul>
+  </section>
+
+  <script src="panel.js"></script>
+</body>
+</html>

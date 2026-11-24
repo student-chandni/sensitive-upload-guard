@@ -1,0 +1,27 @@
+{
+  "name": "sensitive-upload-guard",
+  "version": "1.0.0",
+  "description": "Desktop DLP guard for ChatGPT and Perplexity web: inspects prompts and file uploads for WALLED_SENSITIVE and asks for native confirmation.",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "postinstall": "node scripts/ensure-electron.js",
+    "test": "node --test test/unit.test.js",
+    "test:e2e": "node test/e2e.js",
+    "test:all": "npm test && npm run test:e2e",
+    "smoke": "node scripts/live-smoke.js",
+    "fixtures": "node scripts/make-fixtures.mjs"
+  },
+  "private": true,
+  "dependencies": {
+    "@napi-rs/canvas": "^1.2.0",
+    "@tesseract.js-data/eng": "^1.0.0",
+    "electron": "^45.4.1",
+    "pdfjs-dist": "^6.5.438",
+    "tesseract.js": "^7.0.0",
+    "ws": "^8.23.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
